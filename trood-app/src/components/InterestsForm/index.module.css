@@ -1,0 +1,84 @@
+.interestsContainer {
+  margin-bottom: 20px;
+}
+.titleGroup {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.title {
+  font-weight: 400;
+  font-size: 24px;
+}
+
+.addButton {
+  background-color: transparent;
+  color: #3888E7;
+  border: none;
+  font-size: 20px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.addGroup {
+    background-color: transparent;
+    border-radius: 18px;
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+input {
+    width: 200px;
+    height: 33px;
+  padding: 5px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  background-color: transparent;
+  color: #007bff;
+  border: none;
+  cursor: pointer;
+}
+.interestsList {
+  list-style: none;
+  padding: 0;
+}
+
+.interestsList {
+  display: flex;
+  flex-wrap: wrap; 
+  gap: 15px; 
+  padding: 0;
+  list-style: none; 
+}
+
+.interestItem {
+  display: flex;
+  justify-content: center;
+  gap: 10px; 
+  align-items: center;
+  margin-bottom: 5px;
+  padding: 5px;
+  background: transparent;
+  border: 1px solid #49535C;
+  border-radius: 14px;
+}
+
+.removeButton {
+  color: #49535C;
+  background-color: transparent;
+  padding: 2px 8px;
+  cursor: pointer;
+  text-align: center;
+  display: inline-block;
+}
+
+
+
+

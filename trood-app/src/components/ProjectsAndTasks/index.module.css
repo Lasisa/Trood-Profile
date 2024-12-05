@@ -1,0 +1,59 @@
+.projectsAndTasks {
+    width: 900px;
+    height: 1329px;
+}
+header {
+    width: 900px;
+    align-items: center;
+    display: flex;
+    gap: 48px;
+    padding: 25px;
+}
+.aProfile {
+    text-decoration: none;
+    color: #000000;
+    font-family: Roboto;
+    font-size: 48px;
+    font-weight: 400;
+}
+.logo {
+    font-size: 80px;
+}
+.ProjectsAndTasksContainer {
+    margin-top: 55px;
+    width: 900px;
+    height: 900px;
+    padding: 25px;
+}
+.containerTitle {
+    height: 60px;
+    font-family: Inter;
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 20px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    margin-top: 50px;
+}
+
+.craetePT {
+    padding: 30px;
+    height: 200px;
+    font-family: Inter;
+    font-size: 32px;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.5);
+}
+.grayContainer {
+    width: 500px;
+    height: 290px;
+    background-color: rgba(217, 217, 217, 1);
+    border-radius: 20px;
+    border: 2px solid rgba(217, 217, 217, 1);
+}
+.iconClass {
+    display: flex;
+    justify-content: flex-end;
+    padding: 30px;
+}

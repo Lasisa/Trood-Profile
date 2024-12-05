@@ -1,0 +1,132 @@
+
+.profileContainer {
+    margin-top: 100px;
+    background-color: #E9F2F3;
+    width: 792px;
+    min-height: 1329px; /* Mindesthöhe, passt sich automatisch an */
+    color: #49535C;
+    padding: 10px;
+    overflow: visible; /* Zusätzliche Inhalte sichtbar machen */
+}
+
+.formGroup {
+    margin-top: 15px;
+    width: 695px;
+    min-height: 700px; /* Mindesthöhe für die Gruppe */
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.inputClass {
+    background-color: #E9F2F3;
+    width: 695px;
+    min-height: 80px; /* Mindesthöhe statt fester Höhe */
+    border-radius: 11.3px;
+    border: 2px solid #00000061;
+    color: #00000099;
+    font-size: 22.6px;
+    font-weight: 400;
+    font-family: Roboto;
+    padding: 15px;
+    display: flex;
+    gap: 1rem;
+}
+
+.visibilitySection {
+    width: 695px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.visibilityLabel {
+    margin-bottom: 30px; 
+    font-family: Roboto;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.visibilityOptions {
+    font-size: 20px;
+    font-weight: 400;
+    font-family: Roboto;
+    display: flex;
+    gap: 15px; 
+}
+
+.optionLabel {
+    font-size: 20px;
+    font-weight: 400;
+    font-family: Roboto;
+    display: flex;
+    align-items: center;
+    gap: 15px; 
+}
+
+.optionLabel input[type="radio"] {
+    width: 20px; 
+    height: 20px; 
+    border-radius: 50%; 
+}
+
+.interests {
+    width: 695px;
+    margin: 0 auto;
+    font-family: Roboto;
+    font-size: 20px;
+    font-weight: 100;
+    color: #49535C;
+    margin-top: 25px;
+}
+
+.save {
+    width: 695px;
+    height: 90px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.saveBtn {
+    background-color: #A6C5E3;
+    color: #00000099;
+    font-size: 25px;
+    font-weight: 400;
+    font-family: Roboto;
+    width: 180px;
+    height: 60px;
+    margin: 0 auto;
+}
+
+.avatarSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.avatarLabel {
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+}
+
+.fileInput {
+    display: none; 
+}
+
+.avatarPreview {
+    width: 120px; 
+    height: 120px;
+    border-radius: 50%;
+    background-size: cover; 
+    background-position: center;
+    background-color: #f0f0f0; 
+    border: 2px solid #ccc;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
