@@ -1,20 +1,20 @@
 import React, { useEffect, useState } from 'react';
-// Importiert React und notwendige Hooks
+// Import React and necessary hooks
 
 import InterestsForm from '../InterestsForm/InterestsForm';
-// Importiert das InterestsForm-Komponentenmodul
+// Import the InterestsForm component module
 
 import YourLinks from '../YourLinks/YourLinks';
-// Importiert das YourLinks-Komponentenmodul
+// Import the YourLinks component module
 
 import s from './index.module.css';
-// Importiert CSS-Modul für die Profile-Komponente
+// Import the CSS module for the Profile component
 
 const Profile = () => {
-// Definiert die Hauptkomponente für das Profil
+  // Define the main component for the profile
 
   const [formData, setFormData] = useState({
-    // Initialisiert den Formularzustand mit Standardwerten
+    // Initialize the form state with default values
     name: '',
     surname: '',
     jobTitle: '',
@@ -29,28 +29,28 @@ const Profile = () => {
   });
 
   useEffect(() => {
-    // Lädt gespeicherte Daten aus localStorage
+    // Load saved data from localStorage
     const savedData = localStorage.getItem('profileData');
     if (savedData) {
       setFormData(JSON.parse(savedData));
-      // Aktualisiert den Zustand mit geladenen Daten
+      // Update the state with the loaded data
     }
   }, []);
-  // Leerer Dependency-Array, läuft nur beim ersten Rendern
+  // Empty dependency array, runs only on the first render
 
   const validateForm = () => {
-    // Validiert die Formularfelder basierend auf Regeln
+    // Validate form fields based on rules
     const { name, surname, phone } = formData;
 
-    if (!name || name.length < 2 || name.length > 50 || !/^[a-zA-Z\s\-]+$/.test(name)) {
+    if (!name || name.length < 2 || name.length > 50 || !/^[a-zA-Z\s-]+$/.test(name)) {
       alert('Invalid Name. Please enter a valid name (2-50 characters, only letters and spaces).');
       return false;
-      // Prüft, ob der Name gültig ist
+      // Check if the name is valid
     }
-    if (!surname || surname.length < 2 || surname.length > 50 || !/^[a-zA-Z\s\-]+$/.test(surname)) {
+    if (!surname || surname.length < 2 || surname.length > 50 || !/^[a-zA-Z\s-]+$/.test(surname)) {
       alert('Invalid Surname. Please enter a valid surname (2-50 characters, only letters and spaces).');
       return false;
-      // Prüft, ob der Nachname gültig ist
+      // Check if the surname is valid
     }
     if (
       !phone ||
@@ -58,80 +58,80 @@ const Profile = () => {
     ) {
       alert('Invalid Phone. Please enter a valid phone number (e.g., +1234567890).');
       return false;
-      // Überprüft, ob die Telefonnummer korrekt formatiert ist
+      // Check if the phone number is correctly formatted
     }
     return true;
-    // Gibt `true` zurück, wenn alles gültig ist
+    // Return `true` if everything is valid
   };
 
   const handleAvatarUpload = (e) => {
-    // Handhabt das Hochladen eines Profilbilds
+    // Handle the avatar image upload
     const file = e.target.files[0];
     if (file?.size <= 5 * 1024 * 1024) {
-      // Prüft, ob die Datei kleiner als 5 MB ist
+      // Check if the file is smaller than 5 MB
       const reader = new FileReader();
       reader.onload = () => setFormData((prev) => ({ ...prev, avatar: reader.result }));
       reader.readAsDataURL(file);
-      // Liest die Datei und speichert sie im Zustand
+      // Read the file and save it in the state
     } else {
       alert('Invalid file. Max size: 5MB.');
-      // Zeigt eine Warnung bei zu großer Datei
+      // Show a warning for files that are too large
     }
   };
 
   const handleChange = (e) => {
-    // Aktualisiert Eingabefelder im Zustand
+    // Update input fields in the state
     const { name, value, type, checked } = e.target;
     setFormData((prev) => ({
       ...prev,
       [name]: type === 'checkbox' ? checked : value,
-      // Aktualisiert das richtige Feld basierend auf dem Typ
+      // Update the correct field based on the type
     }));
   };
 
   const handleSave = () => {
-    // Speichert die Daten im localStorage
+    // Save data to localStorage
     if (validateForm()) {
-      // Überprüft die Gültigkeit des Formulars
+      // Validate the form
       localStorage.setItem('profileData', JSON.stringify(formData));
       alert('Profile saved successfully!');
-      // Zeigt eine Erfolgsnachricht
+      // Show a success message
     }
   };
 
   const handleCancel = () => {
-    // Setzt die Änderungen im Formular zurück
+    // Reset the form changes
     const savedData = localStorage.getItem('profileData');
     if (savedData) {
       setFormData(JSON.parse(savedData));
-      // Stellt die gespeicherten Daten wieder her
+      // Restore the saved data
     }
   };
 
   return (
     <div className={s.profileContainer}>
-      {/* Hauptcontainer für die Profil-Komponente */}
+      {/* Main container for the Profile component */}
       <div className={s.avatarSection}>
-        {/* Bereich für das Avatar-Bild */}
+        {/* Section for the avatar image */}
         <label className={s.avatarLabel}>
-          {/* Label für die Avatar-Auswahl */}
+          {/* Label for avatar selection */}
           <input
             type="file"
             accept="image/*"
             className={s.fileInput}
             onChange={handleAvatarUpload}
-            // Dateiauswahl für Avatar-Bild
+            // File input for avatar image
           />
           <div
             className={s.avatarPreview}
             style={{ backgroundImage: `url(${formData.avatar || 'default-avatar.png'})` }}
-            // Vorschau des aktuellen Profilbilds
+            // Preview of the current profile picture
           />
         </label>
       </div>
 
       <form className={s.formGroup}>
-        {/* Formular für Benutzerdetails */}
+        {/* Form for user details */}
         {['name', 'surname', 'job Title', 'phone', 'address', 'pitch'].map((field) => (
           <input
             className={s.inputClass}
@@ -141,13 +141,13 @@ const Profile = () => {
             placeholder={field.charAt(0).toUpperCase() + field.slice(1)}
             value={formData[field]}
             onChange={handleChange}
-            // Eingabefelder für verschiedene Benutzerinformationen
+            // Input fields for various user information
           />
         ))}
       </form>
 
       <div className={s.visibilitySection}>
-        {/* Sichtbarkeitsoptionen für das Profil */}
+        {/* Section for profile visibility options */}
         <label className={s.visibilityLabel}>Show your profile in Launchpad?</label>
         <div className={s.visibilityOptions}>
           {['Private', 'Public'].map((visibility, index) => (
@@ -158,7 +158,7 @@ const Profile = () => {
                 value={Boolean(index)}
                 checked={formData.isPublic === Boolean(index)}
                 onChange={() => setFormData((prev) => ({ ...prev, isPublic: Boolean(index) }))}
-                // Umschalten zwischen privatem und öffentlichem Profil
+                // Toggle between private and public profile
               />
               {visibility}
             </label>
@@ -167,29 +167,29 @@ const Profile = () => {
       </div>
 
       <div className={s.interests}>
-        {/* Bereich für Interessen und Links */}
+        {/* Section for interests and links */}
         <InterestsForm
           title="The scope of your interests: "
           data={formData.interests}
           setData={(newData) => setFormData((prev) => ({ ...prev, interests: newData }))}
-          // Formular zur Bearbeitung der Interessen
+          // Form for editing interests
         />
         <InterestsForm
           title="Potential interests: "
           data={formData.potentialInterests}
           setData={(newData) => setFormData((prev) => ({ ...prev, potentialInterests: newData }))}
-          // Formular zur Bearbeitung potenzieller Interessen
+          // Form for editing potential interests
         />
         <YourLinks
           title="Your links: "
           data={formData.links}
           setData={(newData) => setFormData((prev) => ({ ...prev, links: newData }))}
-          // Formular zur Bearbeitung der Links
+          // Form for editing links
         />
       </div>
 
       <div className={s.save}>
-        {/* Buttons zum Speichern oder Zurücksetzen */}
+        {/* Buttons for saving or resetting */}
         <button className={s.saveBtn} onClick={handleSave}>Save</button>
         <button className={s.saveBtn} onClick={handleCancel}>Cancel</button>
       </div>
@@ -198,5 +198,4 @@ const Profile = () => {
 };
 
 export default Profile;
-// Exportiert die Profilkomponente für die Nutzung
-
+// Export the Profile component for use

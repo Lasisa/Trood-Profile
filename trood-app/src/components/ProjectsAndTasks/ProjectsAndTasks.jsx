@@ -1,53 +1,53 @@
 import React from 'react';
-// Importiert React-Bibliothek für Komponenten
+// Import React library for components
 
 import { FaArrowLeft, FaPlus } from "react-icons/fa6";
-// Importiert Icons aus FontAwesome6
+// Import icons from FontAwesome6
 
 import s from './index.module.css';
-// Importiert CSS-Modul für Stile
+// Import CSS module for styles
 
 export default function ProjectsAndTasks() {
-  // Hauptkomponente für Projekte und Aufgaben
+  // Main component for projects and tasks
   return (
     <div className={s.projectsAndTasks}>
-      {/* Hauptcontainer der Komponente */}
+      {/* Main container for the component */}
       
       <header>
-        {/* Header-Bereich mit Logo und Link */}
+        {/* Header section with logo and link */}
         <FaArrowLeft size="40" />
-        {/* Pfeil-Symbol für Zurück-Funktion */}
+        {/* Arrow icon for back function */}
         <p className={s.logo}>TROOD.</p>
-        {/* Logo-Text für die Seite */}
-        <a href="" className={s.aProfile}>Profile</a>
-        {/* Link zum Benutzerprofil */}
+        {/* Logo text for the page */}
+        <a href="/profile" className={s.aProfile}>Profile</a>
+        {/* Link to user profile */}
       </header>
 
       <div className={s.ProjectsAndTasksContainer}>
-        {/* Container für Projekte und Aufgaben */}
+        {/* Container for projects and tasks */}
         <p className={s.containerTitle}>Projects:</p>
-        {/* Überschrift für den Projektabschnitt */}
+        {/* Title for the projects section */}
         
         <div className={s.grayContainer}>
-          {/* Grauer Bereich für Projekte */}
+          {/* Gray area for projects */}
           <p className={s.craetePT}>Create project</p>
-          {/* Text zum Hinzufügen eines Projekts */}
+          {/* Text for creating a project */}
           <div className={s.iconClass}>
             <FaPlus size="30" color='rgba(0, 0, 0, 0.5)' />
-            {/* Plus-Symbol für Neues Projekt */}
+            {/* Plus icon for creating a new project */}
           </div>
         </div>
         
         <p className={s.containerTitle}>Tasks:</p>
-        {/* Überschrift für den Aufgabenabschnitt */}
+        {/* Title for the tasks section */}
         
         <div className={s.grayContainer}>
-          {/* Grauer Bereich für Aufgaben */}
+          {/* Gray area for tasks */}
           <p className={s.craetePT}>Create task</p>
-          {/* Text zum Hinzufügen einer Aufgabe */}
+          {/* Text for creating a task */}
           <div className={s.iconClass}>
             <FaPlus size="30" color='rgba(0, 0, 0, 0.5)' />
-            {/* Plus-Symbol für Neue Aufgabe */}
+            {/* Plus icon for creating a new task */}
           </div>
         </div>
       </div>
